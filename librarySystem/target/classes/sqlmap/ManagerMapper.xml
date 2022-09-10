@@ -24,15 +24,25 @@
  	
  	<select id="getList" resultType="BookVO">
  		select * from books where
- 		<if test="searchKey != null or searchKey != ''"> (book_title | book_writer | book_serial_number | book_status) like concat('%',#{searchKey},'%') and </if>
+ 		<if test="searchType == 'title'"> book_title like concat('%',#{searchKey},'%') and </if>
+ 		<if test="searchType == 'writer' ">book_writer like concat('%',#{searchKey},'%') and </if> 		
+		<if test="searchType == 'serialNumber' ">book_serial_number like concat('%',#{searchKey},'%') and </if> 		
+		<if test="searchType == 'status' ">book_status like concat('%',#{searchKey},'%') and </if> 	
  		book_status not in ('삭제') 
- 		ORDER BY book_number LIMIT #{pageStart}, #{amount}
+ 		ORDER BY book_number desc LIMIT #{pageStart}, #{amount}
  	</select>
  	
  	<select id="getTotal" resultType="int">
  		select count(*) from books where 
- 		<if test="searchKey != null or searchKey != ''"> (book_title | book_writer | book_serial_number | book_status) like concat('%',#{searchKey},'%') and </if>
+ 		<if test="searchType == 'title'"> book_title like concat('%',#{searchKey},'%') and </if>
+ 		<if test="searchType == 'writer' ">book_writer like concat('%',#{searchKey},'%') and </if> 		
+		<if test="searchType == 'serialNumber' ">book_serial_number like concat('%',#{searchKey},'%') and </if> 		
+		<if test="searchType == 'status' ">book_status like concat('%',#{searchKey},'%') and </if> 	
  		book_status not in ('삭제')
  	</select>
+ 	
+ 	<update id="deleteBook">
+ 		update books set book_status = '삭제' where book_number = #{bookNumber}
+ 	</update>
  
  </mapper>

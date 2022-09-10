@@ -111,7 +111,6 @@ public class ManagerController {
 		
 		if(errors.hasErrors()) {
 			RA.addFlashAttribute("msg", "책 제목과 작가를 입력해주세요");
-			RA.addFlashAttribute("msg", "책 제목과 작가를 입력해주세요");
 			model.addAttribute("bookVO", bookVO);
 			return "manager/register";
 		} else {
@@ -152,9 +151,18 @@ public class ManagerController {
 	}
 	
 	@RequestMapping("/deleteBook")
-	public String deleteBook(@RequestParam("bookNumber") String bookNumber) {
+	public String deleteBook(@RequestParam("bookNumber") String bookNumber, RedirectAttributes RA) {
 		
-		return "redirect:/manager/remove";
+		int result = managerService.deleteBook(bookNumber);
+		
+		if(result == 1) {
+			RA.addFlashAttribute("msg", "삭제 완료 됐습니다");
+			return "redirect:/manager/remove";
+		} else {
+			RA.addFlashAttribute("msg", "삭제 처리에 문제가 생겼습니다");
+			return "redirect:/manager/remove";
+		}
+		
 	}
 	
 }

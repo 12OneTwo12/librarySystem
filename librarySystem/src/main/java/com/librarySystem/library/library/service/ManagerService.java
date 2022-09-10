@@ -6,6 +6,8 @@ import javax.validation.Valid;
 
 import com.librarySystem.library.command.BookVO;
 import com.librarySystem.library.command.ManagerVO;
+import com.librarySystem.library.command.RentalVO;
+import com.librarySystem.library.command.UserRentalVO;
 import com.librarySystem.library.utils.Criteria;
 
 public interface ManagerService {
@@ -21,5 +23,7 @@ public interface ManagerService {
 	List<BookVO> getList(Criteria cri);
 
 	int getTotal(Criteria cri);
+
+	int deleteBook(String bookNumber);
 	
 }

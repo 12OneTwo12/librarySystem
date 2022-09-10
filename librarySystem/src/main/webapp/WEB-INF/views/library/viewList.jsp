@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -54,19 +55,21 @@
 				<div class="content">
 					<div class="inner">
 						<h2>책 찾아보기</h2>
-						<form method="post" action="#">
+						<form method="post" action="findBook">
 							<div class="row gtr-uniform">
 								<div class="col-12">
-									<select name="demo-category" id="demo-category">
-										<option value="">제목</option>
-										<option value="">작가</option>
+									<select name="searchType" id="demo-category">
+										<option value="title" ${pageVO.cri.searchType == 'title' ? 'selected' : ''}>제목</option>
+										<option value="writer" ${pageVO.cri.searchType == 'writer' ? 'selected' : ''}>작가</option>
+										<option value="serialNumber" ${pageVO.cri.searchType == 'serialNumber' ? 'selected' : ''}>일련 번호</option>
 									</select>
 								</div>
-								<div class="col-12">
-									<input type="email" name="demo-email" id="demo-email" value=""
-										placeholder="검색어를 입력해주세요" />
+	
+								<div class="col-6 col-12-xsmall">
+									<input type="text" name="searchKey" id="demo-name"
+										value="${pageVO.cri.searchKey}" placeholder="검색어를 입력해주세요" />
 								</div>
-								<div class="col-12">
+								<div class="col-6 col-12-xsmall">
 									<ul class="actions">
 										<li><input type="submit" value="검색" class="primary" /></li>
 									</ul>
@@ -76,7 +79,8 @@
 						<p></p>
 					</div>
 				</div>
-			</section>
+
+				</section>
 		</section>
 
 		<!-- Two -->
@@ -84,7 +88,9 @@
 			<div class="inner">
 				<h2>책 인기 순위 보기</h2>
 				<p></p>
-
+				<ul class="actions">
+					<li><a href="viewList" class="button">보기</a></li>
+				</ul>
 			</div>
 		</section>
 
@@ -92,14 +98,14 @@
 		<section id="three" class="wrapper style1 fade-up">
 			<div class="inner">
 				<h2>내 대여 기록보기</h2>
-				<form method="post" action="#">
+				<form method="post" action="myRentalRecord">
 					<div class="row gtr-uniform">
 						<div class="col-6 col-12-xsmall">
-							<input type="text" name="demo-name" id="demo-name" value=""
+							<input type="text" name="name" id="demo-name" value=""
 								placeholder="이름" />
 						</div>
 						<div class="col-6 col-12-xsmall">
-							<input type="text" name="demo-email" id="demo-email" value=""
+							<input type="text" name="birth" id="demo-email" value=""
 								placeholder="생년월일" />
 						</div>
 						<div class="col-12">

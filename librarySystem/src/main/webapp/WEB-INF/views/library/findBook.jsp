@@ -11,8 +11,7 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/assets/css/main.css" />
 <noscript>
-	<link rel="stylesheet"
-		href="${pageContext.request.contextPath}/resources/assets/css/noscript.css" />
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/noscript.css" />
 </noscript>
 </head>
 <body class="is-preload">
@@ -23,10 +22,9 @@
 		<nav>
 			<ul>
 				<li><a href="/library/library/index">Home</a></li>
-				<li><a href="register">책 등록</a></li>
-				<li><a href="remove" class="active">책 목록 / 책 삭제</a></li>
-				<li><a href="mypage">MyPage</a></li>
-				<li><a href="logout">Logout</a></li>
+				<li><a href="findBook" class="active">책 찾아보기</a></li>
+				<li><a href="viewPopularity">책 인기 순위 보기</a></li>
+				<li><a href="myRentalRecord">내 대여 기록 보기</a></li>
 			</ul>
 		</nav>
 	</header>
@@ -37,32 +35,31 @@
 		<!-- Main -->
 		<section id="main" class="wrapper">
 			<div class="inner">
-				<h1 class="major">책 목록</h1>
+				<h1 class="major">내 대여 기록 보기</h1>
 
 				<!-- Form -->
 				<section>
-					<form method="post" action="remove">
-						<div class="row gtr-uniform">
-							<div class="col-12">
-								<select name="searchType" id="demo-category">
-									<option value="title" ${pageVO.cri.searchType == 'title' ? 'selected' : ''}>제목</option>
-									<option value="writer" ${pageVO.cri.searchType == 'writer' ? 'selected' : ''}>작가</option>
-									<option value="serialNumber" ${pageVO.cri.searchType == 'serialNumber' ? 'selected' : ''}>일련 번호</option>
-									<option value="status" ${pageVO.cri.searchType == 'status' ? 'selected' : ''}>상태</option>
-								</select>
+						<form method="post" action="findBook">
+							<div class="row gtr-uniform">
+								<div class="col-12">
+									<select name="searchType" id="demo-category">
+										<option value="title" ${pageVO.cri.searchType == 'title' ? 'selected' : ''}>제목</option>
+										<option value="writer" ${pageVO.cri.searchType == 'writer' ? 'selected' : ''}>작가</option>
+										<option value="serialNumber" ${pageVO.cri.searchType == 'serialNumber' ? 'selected' : ''}>일련 번호</option>
+									</select>
+								</div>
+	
+								<div class="col-6 col-12-xsmall">
+									<input type="text" name="searchKey" id="demo-name"
+										value="${pageVO.cri.searchKey}" placeholder="검색어를 입력해주세요" />
+								</div>
+								<div class="col-6 col-12-xsmall">
+									<ul class="actions">
+										<li><input type="submit" value="검색" class="primary" /></li>
+									</ul>
+								</div>
 							</div>
-
-							<div class="col-6 col-12-xsmall">
-								<input type="text" name="searchKey" id="demo-name"
-									value="${pageVO.cri.searchKey}" placeholder="검색" />
-							</div>
-							<div class="col-6 col-12-xsmall">
-								<ul class="actions">
-									<li><input type="submit" value="검색" class="primary" /></li>
-								</ul>
-							</div>
-						</div>
-					</form>
+						</form>
 				</section>
 				<section>
 					<div class="table-wrapper">
@@ -73,7 +70,6 @@
 									<th>Title</th>
 									<th>Writer</th>
 									<th>Status</th>
-									<th></th>
 								</tr>
 							</thead>
 							<tbody>
@@ -83,38 +79,36 @@
 										<td>${vo.bookTitle}</td>
 										<td>${vo.bookWriter}</td>
 										<td>${vo.bookStatus}</td>
-										<td><button type="button" onclick="deleteBookF(${vo.bookNumber})"
-											class="button small" id="deleteBook">삭제</button></td>
 									</tr>
 								</c:forEach>
 							</tbody>
 						</table>
 						<div class="pagination">
 							<a
-								href="remove?searchKey=${pageVO.cri.searchKey}&pageNum=1&amount=${pageVO.amount}"
+								href="findBook?searchKey=${pageVO.cri.searchKey}&pageNum=1&amount=${pageVO.amount}"
 								class="button small">첫 페이지로 이동</a>
 
 							<c:if test="${pageVO.prev}">
 								<a
-									href="remove?searchKey=${pageVO.cri.searchKey}&pageNum=${pageVO.start-1}&amount=${pageVO.amount}"
+									href="findBook?searchKey=${pageVO.cri.searchKey}&pageNum=${pageVO.start-1}&amount=${pageVO.amount}"
 									class="button small">이전 페이지로 이동</a>
 							</c:if>
 
 							<c:forEach var="num" begin="${pageVO.start}" end="${pageVO.end}"
 								step="1">
 								<a
-									href="remove?searchKey=${pageVO.cri.searchKey}&pageNum=${num}&amount=${pageVO.amount}"><span
+									href="findBook?searchKey=${pageVO.cri.searchKey}&pageNum=${num}&amount=${pageVO.amount}"><span
 									class="button small ${pageVO.page == num ? 'currentpage' : ''}"
 									style="${pageVO.page == num ? 'border-color: #ffffff !important; ' : ''}">${num}</span></a>
 							</c:forEach>
 
 							<c:if test="${pageVO.next}">
 								<a
-									href="remove?searchKey=${pageVO.cri.searchKey}&pageNum=${pageVO.end+1}&amount=${pageVO.amount}"
+									href="findBook?searchKey=${pageVO.cri.searchKey}&pageNum=${pageVO.end+1}&amount=${pageVO.amount}"
 									class="button small">다음 페이지로 이동</a>
 							</c:if>
 							<a
-								href="remove?searchKey=${pageVO.cri.searchKey}&pageNum=${pageVO.realEnd}&amount=${pageVO.amount}"
+								href="findBook?searchKey=${pageVO.cri.searchKey}&pageNum=${pageVO.realEnd}&amount=${pageVO.amount}"
 								class="button small">마지막 페이지로 이동</a>
 						</div>
 
@@ -158,15 +152,6 @@
 		if (msg != "") {
 			alert(msg);
 		}
-		
-		function deleteBookF(number){
-    		event.preventDefault(); 
-    		
-    		if(confirm("삭제 하시겠습니까?")){
-    			var link = "deleteBook?bookNumber="+number;
-    			location.href = link;
-    		}
-    	}
 	</script>
 </body>
 </html>

@@ -46,4 +46,9 @@ public class ManagerServiceImpl implements ManagerService {
 		return managerMapper.getTotal(cri);
 	}
 
+	@Override
+	public int deleteBook(String bookNumber) {
+		return managerMapper.deleteBook(bookNumber);
+	}
+
 }

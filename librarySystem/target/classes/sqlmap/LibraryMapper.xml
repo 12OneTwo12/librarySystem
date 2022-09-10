@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+ <mapper namespace="com.librarySystem.library.library.mapper.LibraryMapper">
+ 
+ 	<select id="getBookVO" resultType="BookVO">
+ 		select * from books where book_serial_number = #{bookSerialNumber}
+ 	</select>
+ 
+ 	<insert id="rentalBook">
+ 		insert into rental_record (book_number, book_serial_number, name, birth, phone_number) 
+ 		values (#{bookVO.bookNumber},#{bookVO.bookSerialNumber},#{rentalVO.name},#{rentalVO.birth},#{rentalVO.phoneNumber})
+ 	</insert>
+ 
+ 	<update id="updateStatus">
+ 		update books set book_status = #{status} where book_number = #{bookNumber}
+ 	</update>
+ 	
+ 	<select id="getRentalData" resultType="RentalVO">
+ 		select * from rental_record where book_number = #{bookNumber} and rental_end is null
+ 	</select>
+ 
+ 	<update id="realReturnBook">
+ 		update rental_record set rental_end = NOW() where book_number = #{bookNumber} and rental_end is null
+ 	</update>
+ 	
+ 	<select id="getMyRentalList" resultType="UserRentalVO">
+ 		select b.book_number, b.book_serial_number, b.book_title, b.book_writer, book_status, 
+ 				r.name, r.birth, r.rental_start, r.rental_end 
+ 				from books b inner join rental_record r 
+ 				on b.book_serial_number = r.book_serial_number 
+ 				where r.name = #{rentalVO.name} and r.birth = #{rentalVO.birth}
+ 				ORDER BY book_number desc LIMIT #{cri.pageStart}, #{cri.amount}
+ 	</select>
+ 
+ 	 <select id="getTotalMyRental" resultType="int">
+ 		select count(*) from rental_record where name = #{name} and birth = #{birth}
+ 	</select>
+ 
+ </mapper>

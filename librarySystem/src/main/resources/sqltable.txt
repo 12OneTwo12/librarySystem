@@ -16,3 +16,17 @@ create table manager(
 	manager_id varchar(30) not null,
 	manager_pw varchar(30) not null
 );
+
+create table rental_record(
+
+	rental_number int primary key auto_increment,
+	book_number int not null,
+	book_serial_number varchar(15) not null,
+	name varchar(15) not null,
+	birth varchar(6) not null,
+	phone_number varchar(30) not null,
+	rental_start timestamp default current_timestamp,
+	rental_end timestamp,
+	foreign key (book_number) references books(book_number)
+	
+);

@@ -10,5 +10,7 @@
 		<typeAliases>
 			<typeAlias type="com.librarySystem.library.command.ManagerVO" alias="ManagerVO"/>
 			<typeAlias type="com.librarySystem.library.command.BookVO" alias="BookVO"/>
+			<typeAlias type="com.librarySystem.library.command.RentalVO" alias="RentalVO"/>
+			<typeAlias type="com.librarySystem.library.command.UserRentalVO" alias="UserRentalVO"/>
 		</typeAliases>
 	</configuration>

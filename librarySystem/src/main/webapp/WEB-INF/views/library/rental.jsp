@@ -24,7 +24,7 @@
 				<li><a href="index">Home</a></li>
 				<li><a href="rental" class="active">대여</a></li>
 				<li><a href="returnBook">반납</a></li>
-				<li><a href="elements.html">조회</a></li>
+				<li><a href="viewList">조회</a></li>
 			</ul>
 		</nav>
 	</header>
@@ -40,19 +40,19 @@
 							<!-- Form -->
 								<section>
 									<h2>작성해주세요</h2>
-									<form method="post" action="#">
+									<form method="post" action="rentalBook">
 										<div class="row gtr-uniform">
 											<div class="col-12">
-												<input type="email" name="demo-email" id="demo-email" value="" placeholder="책 일련번호" />
+												<input type="text" name="bookSerialNumber" id="demo-email" value="${rentalVO.bookSerialNumber}" placeholder="책 일련번호" required="required"/>
 											</div>
 											<div class="col-6 col-12-xsmall">
-												<input type="text" name="demo-name" id="demo-name" value="" placeholder="이름" />
+												<input type="text" name="name" id="demo-name" value="${rentalVO.name}" placeholder="이름" required="required"/>
 											</div>
 											<div class="col-6 col-12-xsmall">
-												<input type="text" name="demo-email" id="demo-email" value="" placeholder="생년월일" />
+												<input type="text" name="birth" id="demo-email" value="${rentalVO.birth}" placeholder="생년월일" required="required"/>
 											</div>
 											<div class="col-12">
-												<input type="text" name="demo-email" id="demo-email" value="" placeholder="연락처" />
+												<input type="text" name="phoneNumber" id="demo-email" value="${rentalVO.phoneNumber}" placeholder="연락처" required="required"/>
 											</div>
 											<div class="col-12">
 												<ul class="actions">

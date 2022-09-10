@@ -21,5 +21,7 @@ public interface ManagerMapper {
 	List<BookVO> getList(Criteria cri);
 
 	int getTotal(Criteria cri);
+
+	int deleteBook(String bookNumber);
 	
 }
