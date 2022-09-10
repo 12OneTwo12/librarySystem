@@ -18,13 +18,14 @@
 
 	<!-- Header -->
 	<header id="header">
-		<a href="index.html" class="title">PlayData Book Rental Service</a>
+		<a href="index" class="title">PlayData Book Rental Service</a>
 		<nav>
 			<ul>
-				<li><a href="/library/library/index">Home</a></li>
+				<li><a href="index">Home</a></li>
 				<li><a href="findBook" >책 찾아보기</a></li>
 				<li><a href="viewPopularity">책 인기 순위 보기</a></li>
 				<li><a href="myRentalRecord" class="active">내 대여 기록 보기</a></li>
+				<li><a href="findBySerialNumber">일련번호로 조회하기</a></li>
 			</ul>
 		</nav>
 	</header>
@@ -43,12 +44,12 @@
 							<div class="row gtr-uniform">
 								<div class="col-6 col-12-xsmall">
 									<input type="text" name="name" id="demo-name"
-										value="${pageVO.name}" placeholder="이름을 입력해주세요" />
+										value="${rentalVO.name}" placeholder="이름을 입력해주세요" />
 								</div>
 	
 								<div class="col-6 col-12-xsmall">
 									<input type="text" name="birth" id="demo-name"
-										value="${pageVO.birth}" placeholder="생년월일을 입력해주세요" />
+										value="${rentalVO.birth}" placeholder="생년월일을 입력해주세요" />
 								</div>
 								<div class="col-6 col-12-xsmall">
 									<ul class="actions">

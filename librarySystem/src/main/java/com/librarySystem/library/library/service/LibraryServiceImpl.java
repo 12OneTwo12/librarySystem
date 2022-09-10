@@ -75,4 +75,24 @@ public class LibraryServiceImpl implements LibraryService {
 		return libraryMapper.getTotalMyRental(rentalVO);
 	}
 
+	@Override
+	public List<BookVO> viewPopularity(Criteria cri) {
+		return libraryMapper.viewPopularity(cri);
+	}
+
+	@Override
+	public int getTotalPopularity(Criteria cri) {
+		return libraryMapper.getTotalPopularity(cri).size();
+	}
+
+	@Override
+	public List<UserRentalVO> getListBySerialNumber(Criteria cri) {
+		return libraryMapper.getListBySerialNumber(cri);
+	}
+
+	@Override
+	public int getTotalBySerialNumber(Criteria cri) {
+		return libraryMapper.getTotalBySerialNumber(cri);
+	}
+
 }

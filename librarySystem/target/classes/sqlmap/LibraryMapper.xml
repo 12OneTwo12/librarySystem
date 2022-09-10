@@ -27,7 +27,7 @@
  	</update>
  	
  	<select id="getMyRentalList" resultType="UserRentalVO">
- 		select b.book_number, b.book_serial_number, b.book_title, b.book_writer, book_status, 
+ 		select b.book_number, b.book_serial_number, b.book_title, b.book_writer, b.book_status, 
  				r.name, r.birth, r.rental_start, r.rental_end 
  				from books b inner join rental_record r 
  				on b.book_serial_number = r.book_serial_number 
@@ -37,6 +37,33 @@
  
  	 <select id="getTotalMyRental" resultType="int">
  		select count(*) from rental_record where name = #{name} and birth = #{birth}
+ 	</select>
+ 	
+ 	<select id="viewPopularity" resultType="BookVO">
+ 		 select b.book_number, b.book_serial_number, b.book_title, b.book_writer, b.book_status, 
+ 				count(r.book_number) as count
+ 				from books b inner join rental_record r 
+ 				on b.book_serial_number = r.book_serial_number 
+ 				group by r.book_number
+ 				ORDER BY book_number LIMIT #{pageStart}, #{amount}
+ 	</select>
+ 	
+ 	<select id="getTotalPopularity" resultType="BookVO">
+ 		select count(*) as count from rental_record group by book_number
+ 	</select>
+ 	
+ 	<select id="getListBySerialNumber" resultType="UserRentalVO">
+ 		 select b.book_number, b.book_serial_number, b.book_title, b.book_writer, b.book_status, 
+ 				r.name, r.birth, r.rental_start, r.rental_end 
+ 				from books b inner join rental_record r 
+ 				on b.book_serial_number = r.book_serial_number 
+ 				where b.book_serial_number like concat('%',#{searchKey},'%')
+ 				ORDER BY book_number desc LIMIT #{pageStart}, #{amount}
+ 	</select>
+ 	
+ 	<select id="getTotalBySerialNumber" resultType="int">
+ 		select count(*) from rental_record 
+ 		where book_serial_number like concat('%',#{searchKey},'%')
  	</select>
  
  </mapper>

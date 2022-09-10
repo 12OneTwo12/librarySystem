@@ -6,6 +6,7 @@ import javax.validation.Valid;
 
 import com.librarySystem.library.command.BookVO;
 import com.librarySystem.library.command.ManagerVO;
+import com.librarySystem.library.command.UserRentalVO;
 import com.librarySystem.library.utils.Criteria;
 
 public interface ManagerMapper {
@@ -23,5 +24,9 @@ public interface ManagerMapper {
 	int getTotal(Criteria cri);
 
 	int deleteBook(String bookNumber);
-	
+
+	List<UserRentalVO> getReturnList(Criteria cri);
+
+	List<UserRentalVO> getTotalReturn();
+
 }

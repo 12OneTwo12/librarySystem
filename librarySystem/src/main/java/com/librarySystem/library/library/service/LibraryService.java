@@ -20,5 +20,13 @@ public interface LibraryService {
 	List<UserRentalVO> getMyRentalList(Criteria cri, RentalVO rentalVO);
 
 	int getTotalMyRental(RentalVO rentalVO);
+
+	List<BookVO> viewPopularity(Criteria cri);
+
+	int getTotalPopularity(Criteria cri);
+
+	List<UserRentalVO> getListBySerialNumber(Criteria cri);
+	
+	int getTotalBySerialNumber(Criteria cri);
 	
 }

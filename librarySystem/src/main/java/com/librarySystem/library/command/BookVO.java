@@ -23,5 +23,6 @@ public class BookVO {
 	private String bookWriter;
 	private String bookStatus;
 	private String bookCategory;
+	private String count;
 	
 }

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.librarySystem.library.command.BookVO;
 import com.librarySystem.library.command.ManagerVO;
+import com.librarySystem.library.command.UserRentalVO;
 import com.librarySystem.library.library.mapper.ManagerMapper;
 import com.librarySystem.library.utils.Criteria;
 
@@ -49,6 +50,16 @@ public class ManagerServiceImpl implements ManagerService {
 	@Override
 	public int deleteBook(String bookNumber) {
 		return managerMapper.deleteBook(bookNumber);
+	}
+
+	@Override
+	public List<UserRentalVO> getReturnList(Criteria cri) {
+		return managerMapper.getReturnList(cri);
+	}
+
+	@Override
+	public int getTotalReturn() {
+		return managerMapper.getTotalReturn().size();
 	}
 
 }

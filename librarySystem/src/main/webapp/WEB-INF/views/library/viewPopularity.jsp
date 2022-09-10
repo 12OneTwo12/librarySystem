@@ -18,13 +18,14 @@
 
 	<!-- Header -->
 	<header id="header">
-		<a href="index.html" class="title">PlayData Book Rental Service</a>
+		<a href="index" class="title">PlayData Book Rental Service</a>
 		<nav>
 			<ul>
-				<li><a href="/library/library/index">Home</a></li>
-				<li><a href="findBook" class="active">책 찾아보기</a></li>
-				<li><a href="viewPopularity">책 인기 순위 보기</a></li>
+				<li><a href="index">Home</a></li>
+				<li><a href="findBook">책 찾아보기</a></li>
+				<li><a href="viewPopularity" class="active">책 인기 순위 보기</a></li>
 				<li><a href="myRentalRecord">내 대여 기록 보기</a></li>
+				<li><a href="findBySerialNumber">일련번호로 조회하기</a></li>
 			</ul>
 		</nav>
 	</header>
@@ -37,48 +38,28 @@
 			<div class="inner">
 				<h1 class="major">책 인기 순위 보기</h1>
 
-				<!-- Form -->
-				<section>
-						<form method="post" action="findbook">
-							<div class="row gtr-uniform">
-								<div class="col-12">
-									<select name="searchType" id="demo-category">
-										<option value="title" ${pageVO.cri.searchType == 'title' ? 'selected' : ''}>제목</option>
-										<option value="writer" ${pageVO.cri.searchType == 'writer' ? 'selected' : ''}>작가</option>
-										<option value="serialNumber" ${pageVO.cri.searchType == 'serialNumber' ? 'selected' : ''}>일련 번호</option>
-									</select>
-								</div>
-	
-								<div class="col-6 col-12-xsmall">
-									<input type="text" name="searchKey" id="demo-name"
-										value="${pageVO.cri.searchKey}" placeholder="검색어를 입력해주세요" />
-								</div>
-								<div class="col-6 col-12-xsmall">
-									<ul class="actions">
-										<li><input type="submit" value="검색" class="primary" /></li>
-									</ul>
-								</div>
-							</div>
-						</form>
-				</section>
 				<section>
 					<div class="table-wrapper">
 						<table class="alt">
 							<thead>
 								<tr>
+									<th>Ranking</th>
 									<th>Book Serial Number</th>
 									<th>Title</th>
 									<th>Writer</th>
 									<th>Status</th>
+									<th>Hit</th>
 								</tr>
 							</thead>
 							<tbody>
-								<c:forEach var="vo" items="${list}">
+								<c:forEach var="vo" varStatus="status" items="${list}">
 									<tr>
+										<td>${(pageVO.page*10)-10+status.count}</td>
 										<td>${vo.bookSerialNumber}</td>
 										<td>${vo.bookTitle}</td>
 										<td>${vo.bookWriter}</td>
 										<td>${vo.bookStatus}</td>
+										<td>${vo.count}</td>
 									</tr>
 								</c:forEach>
 							</tbody>

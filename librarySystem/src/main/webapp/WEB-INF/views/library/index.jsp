@@ -61,7 +61,7 @@
 									<h2>책 반납하기</h2>
 									<p>별도의 사정으로 책이 회손됐을 경우 매니저님께 말씀해주세요. 7일 이내로 반납한 경우가 아닐 시 별도의 불이익이 있을 수 있습니다.</p>
 									<ul class="actions">
-										<li><a href="generic.html" class="button">반납</a></li>
+										<li><a href="returnBook" class="button">반납</a></li>
 									</ul>
 								</div>
 							</div>
@@ -91,8 +91,8 @@
 								</section>
 								<section>
 									<span class="icon solid major fa-desktop"></span>
-									<h3>책 대여 / 반납하기</h3>
-									<p>책 대여 혹은 반납하기</p>
+									<h3>전체 기록 조회 및 일련번호로 조회하기</h3>
+									<p>일련번호로 전체 기록을 조회해보세요</p>
 								</section>
 							</div>
 

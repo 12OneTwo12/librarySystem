@@ -23,5 +23,6 @@ public class UserRentalVO {
 	private String name;
 	private LocalDateTime rentalStart;
 	private LocalDateTime rentalEnd;
+	private String phoneNumber;
 	
 }

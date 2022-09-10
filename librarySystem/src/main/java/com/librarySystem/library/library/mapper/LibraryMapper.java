@@ -8,6 +8,7 @@ import org.apache.ibatis.annotations.Param;
 import com.librarySystem.library.command.BookVO;
 import com.librarySystem.library.command.RentalVO;
 import com.librarySystem.library.command.UserRentalVO;
+import com.librarySystem.library.utils.Criteria;
 
 public interface LibraryMapper {
 
@@ -25,4 +26,11 @@ public interface LibraryMapper {
 
 	int getTotalMyRental(RentalVO rentalVO);
 
+	List<BookVO> viewPopularity(Criteria cri);
+
+	List<BookVO> getTotalPopularity(Criteria cri);
+
+	List<UserRentalVO> getListBySerialNumber(Criteria cri);
+
+	int getTotalBySerialNumber(Criteria cri);
 }

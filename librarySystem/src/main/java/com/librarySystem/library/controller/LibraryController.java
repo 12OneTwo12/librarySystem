@@ -49,8 +49,13 @@ public class LibraryController {
 	}
 	
 	@RequestMapping("/viewPopularity")
-	public String viewPopularity() {
+	public String viewPopularity(Criteria cri, Model model) {
 		
+		List<BookVO> list = libraryService.viewPopularity(cri);
+		PageVO pageVO = new PageVO(cri, libraryService.getTotalPopularity(cri));
+		
+		model.addAttribute("list", list);
+		model.addAttribute("pageVO", pageVO);
 		return "library/viewPopularity";
 	}
 	
@@ -77,6 +82,7 @@ public class LibraryController {
 		
 		model.addAttribute("list", list);
 		model.addAttribute("pageVO", pageVO);
+		model.addAttribute("rentalVO", vo);
 		
 		return "library/myRentalRecord";
 		
@@ -174,6 +180,19 @@ public class LibraryController {
 			}
 		}
 		
+	}
+	
+	@RequestMapping("/findBySerialNumber")
+	public String findBySerialNumber(Criteria cri,Model model) {
+		
+		List<UserRentalVO> list = libraryService.getListBySerialNumber(cri);
+		
+		PageVO pageVO = new PageVO(cri, libraryService.getTotalBySerialNumber(cri));
+		
+		model.addAttribute("list", list);
+		model.addAttribute("pageVO", pageVO);
+		
+		return "library/findBySerialNumber";
 	}
 	
 }

@@ -18,14 +18,14 @@
 
 	<!-- Header -->
 	<header id="header">
-		<a href="index" class="title">PlayData Book Rental Service</a>
+		<a href="/library/library/index" class="title">PlayData Book Rental Service</a>
 		<nav>
 			<ul>
-				<li><a href="index">Home</a></li>
-				<li><a href="findBook" class="active">책 찾아보기</a></li>
+				<li><a href="/library/library/index">Home</a></li>
+				<li><a href="findBook" >책 찾아보기</a></li>
 				<li><a href="viewPopularity">책 인기 순위 보기</a></li>
 				<li><a href="myRentalRecord">내 대여 기록 보기</a></li>
-				<li><a href="findBySerialNumber">일련번호로 조회하기</a></li>
+				<li><a href="findBySerialNumber" class="active">일련번호로 조회하기</a></li>
 			</ul>
 		</nav>
 	</header>
@@ -36,23 +36,15 @@
 		<!-- Main -->
 		<section id="main" class="wrapper">
 			<div class="inner">
-				<h1 class="major">내 대여 기록 보기</h1>
+				<h1 class="major">전체 기록 조회 및 일련번호로 조회하기</h1>
 
 				<!-- Form -->
 				<section>
-						<form method="post" action="findBook">
+						<form method="post" action="findBySerialNumber">
 							<div class="row gtr-uniform">
-								<div class="col-12">
-									<select name="searchType" id="demo-category">
-										<option value="title" ${pageVO.cri.searchType == 'title' ? 'selected' : ''}>제목</option>
-										<option value="writer" ${pageVO.cri.searchType == 'writer' ? 'selected' : ''}>작가</option>
-										<option value="serialNumber" ${pageVO.cri.searchType == 'serialNumber' ? 'selected' : ''}>일련 번호</option>
-									</select>
-								</div>
-	
 								<div class="col-6 col-12-xsmall">
 									<input type="text" name="searchKey" id="demo-name"
-										value="${pageVO.cri.searchKey}" placeholder="검색어를 입력해주세요" />
+										value="${pageVO.cri.searchKey}" placeholder="일련번호를 입력해주세요" />
 								</div>
 								<div class="col-6 col-12-xsmall">
 									<ul class="actions">
@@ -71,45 +63,51 @@
 									<th>Title</th>
 									<th>Writer</th>
 									<th>Status</th>
+									<th>Name</th>
+									<th>Rental Start</th>
+									<th>Rental End</th>
 								</tr>
 							</thead>
 							<tbody>
 								<c:forEach var="vo" items="${list}">
-									<tr>
+									<tr style="font-size: 18px;">
 										<td>${vo.bookSerialNumber}</td>
 										<td>${vo.bookTitle}</td>
 										<td>${vo.bookWriter}</td>
 										<td>${vo.bookStatus}</td>
+										<td>${vo.name}</td>
+										<td>${vo.rentalStart}</td>
+										<td>${vo.rentalEnd}</td>
 									</tr>
 								</c:forEach>
 							</tbody>
 						</table>
 						<div class="pagination">
 							<a
-								href="findBook?searchKey=${pageVO.cri.searchKey}&pageNum=1&amount=${pageVO.amount}"
+								href="findBySerialNumber?pageNum=1&amount=${pageVO.amount}"
 								class="button small">첫 페이지로 이동</a>
 
 							<c:if test="${pageVO.prev}">
 								<a
-									href="findBook?searchKey=${pageVO.cri.searchKey}&pageNum=${pageVO.start-1}&amount=${pageVO.amount}"
+									href="findBySerialNumber?&pageNum=${pageVO.start-1}&amount=${pageVO.amount}"
 									class="button small">이전 페이지로 이동</a>
 							</c:if>
 
 							<c:forEach var="num" begin="${pageVO.start}" end="${pageVO.end}"
 								step="1">
 								<a
-									href="findBook?searchKey=${pageVO.cri.searchKey}&pageNum=${num}&amount=${pageVO.amount}"><span
+									href="findBySerialNumber?pageNum=${num}&amount=${pageVO.amount}"><span
 									class="button small ${pageVO.page == num ? 'currentpage' : ''}"
 									style="${pageVO.page == num ? 'border-color: #ffffff !important; ' : ''}">${num}</span></a>
 							</c:forEach>
 
 							<c:if test="${pageVO.next}">
 								<a
-									href="findBook?searchKey=${pageVO.cri.searchKey}&pageNum=${pageVO.end+1}&amount=${pageVO.amount}"
+									href="findBySerialNumber?pageNum=${pageVO.end+1}&amount=${pageVO.amount}"
 									class="button small">다음 페이지로 이동</a>
 							</c:if>
 							<a
-								href="findBook?searchKey=${pageVO.cri.searchKey}&pageNum=${pageVO.realEnd}&amount=${pageVO.amount}"
+								href="findBySerialNumber?pageNum=${pageVO.realEnd}&amount=${pageVO.amount}"
 								class="button small">마지막 페이지로 이동</a>
 						</div>
 

@@ -45,4 +45,21 @@
  		update books set book_status = '삭제' where book_number = #{bookNumber}
  	</update>
  
+ 	<select id="getReturnList" resultType="UserRentalVO">
+ 		 select b.book_number, b.book_serial_number, b.book_title, b.book_writer, b.book_status, 
+ 				r.name, r.phone_number, r.birth, r.rental_start, r.rental_end 
+ 				from books b inner join rental_record r 
+ 				on b.book_serial_number = r.book_serial_number 
+ 				where r.rental_end is null and b.book_status not in ('삭제')
+ 				ORDER BY book_number LIMIT #{pageStart}, #{amount}
+ 	</select>
+ 	
+ 	<select id="getTotalReturn" resultType="UserRentalVO">
+		select b.book_number, b.book_serial_number, b.book_title, b.book_writer, b.book_status, 
+ 				r.name, r.phone_number, r.birth, r.rental_start, r.rental_end 
+ 				from books b inner join rental_record r 
+ 				on b.book_serial_number = r.book_serial_number 
+ 				where r.rental_end is null and b.book_status not in ('삭제')
+ 	</select>
+ 
  </mapper>

@@ -25,5 +25,9 @@ public interface ManagerService {
 	int getTotal(Criteria cri);
 
 	int deleteBook(String bookNumber);
+
+	List<UserRentalVO> getReturnList(Criteria cri);
+
+	int getTotalReturn();
 	
 }

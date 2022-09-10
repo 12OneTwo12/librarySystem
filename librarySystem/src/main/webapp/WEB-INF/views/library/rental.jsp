@@ -18,7 +18,7 @@
 
 	<!-- Header -->
 	<header id="header">
-		<a href="index.html" class="title">PlayData Book Rental Service</a>
+		<a href="index" class="title">PlayData Book Rental Service</a>
 		<nav>
 			<ul>
 				<li><a href="index">Home</a></li>

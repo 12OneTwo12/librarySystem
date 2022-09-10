@@ -45,6 +45,7 @@
 					<li><a href="#one" class="button scrolly">책 찾아보기</a></li>
 					<li><a href="#two" class="button scrolly">책 인기 순위 보기</a></li>
 					<li><a href="#three" class="button scrolly">내 대여 기록 보기</a></li>
+					<li><a href="#four" class="button scrolly">전체 기록 조회 및 일련번호로 조회하기</a></li>
 				</ul>
 			</div>
 		</section>
@@ -89,7 +90,7 @@
 				<h2>책 인기 순위 보기</h2>
 				<p></p>
 				<ul class="actions">
-					<li><a href="viewList" class="button">보기</a></li>
+					<li><a href="viewPopularity" class="button">보기</a></li>
 				</ul>
 			</div>
 		</section>
@@ -116,6 +117,31 @@
 					</div>
 				</form>
 			</div>
+		</section>
+		
+		<section id="four" class="wrapper style2 spotlights">
+			<section>
+				<div class="content">
+					<div class="inner">
+						<h2>전체 기록 조회 및 일련번호로 조회하기</h2>
+						<form method="post" action="findBySerialNumber">
+							<div class="row gtr-uniform">
+								<div class="col-6 col-12-xsmall">
+									<input type="text" name="searchKey" id="demo-name"
+										value="${pageVO.cri.searchKey}" placeholder="일련번호를 입력해주세요" />
+								</div>
+								<div class="col-6 col-12-xsmall">
+									<ul class="actions">
+										<li><input type="submit" value="검색" class="primary" /></li>
+									</ul>
+								</div>
+							</div>
+						</form>
+						<p></p>
+					</div>
+				</div>
+
+				</section>
 		</section>
 
 	</div>

@@ -18,12 +18,13 @@
 
 	<!-- Header -->
 	<header id="header">
-		<a href="index.html" class="title">PlayData Book Rental Service</a>
+		<a href="/library/library/index" class="title">PlayData Book Rental Service</a>
 		<nav>
 			<ul>
 				<li><a href="/library/library/index">Home</a></li>
 				<li><a href="register" class="active">책 등록</a></li>
 				<li><a href="remove">책 목록 / 삭제</a></li>
+				<li><a href="returnList" >반납 독촉 목록</a></li>
 				<li><a href="mypage">MyPage</a></li>
 				<li><a href="logout">Logout</a></li>
 			</ul>
@@ -69,7 +70,11 @@
 						</div>
 					</form>
 				</section>
-
+				<div class="col-6 col-12-xsmall">
+					<span class="image fit">
+						<img src="/barcodes/${realSerialNumber}.png">
+					</span>
+				</div>
 			</div>
 		</section>
 
