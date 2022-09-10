@@ -1,0 +1,18 @@
+create database library default character set utf8;
+create user 'library' identified by 'library';
+grant all privileges on library.* to 'library';
+
+create table books(
+	book_number int primary key auto_increment,
+    book_serial_number varchar(15) not null,
+	book_title varchar(50) not null,
+	book_writer varchar(30) not null,
+    book_category varchar(30) default 'Others',
+	book_status varchar(30) default '대여 가능'
+);
+
+create table manager(
+	manager_number int primary key auto_increment,
+	manager_id varchar(30) not null,
+	manager_pw varchar(30) not null
+);

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+ <mapper namespace="com.librarySystem.library.library.mapper.ManagerMapper">
+ 
+ 	<select id="managerLogin" resultType="ManagerVO">
+ 		SELECT * FROM manager WHERE manager_id = #{managerId} AND manager_pw = #{managerPw}
+ 	</select>
+ 
+ 	<update id="changePw">
+ 		UPDATE manager SET manager_pw = #{managerNewPw} where manager_id = 'admin'
+ 	</update>
+ 	
+ 	<select id="getCount" resultType="int">
+ 		select count(*) from books
+ 	</select>
+ 
+ 	<insert id="bookRegister">
+ 		insert into books (book_serial_number, book_title, book_writer, book_category) 
+ 		values (#{bookSerialNumber},#{bookTitle},#{bookWriter},#{bookCategory})
+ 	</insert>
+ 	
+ 	<select id="getList" resultType="BookVO">
+ 		select * from books where
+ 		<if test="searchKey != null or searchKey != ''"> (book_title | book_writer | book_serial_number | book_status) like concat('%',#{searchKey},'%') and </if>
+ 		book_status not in ('삭제') 
+ 		ORDER BY book_number LIMIT #{pageStart}, #{amount}
+ 	</select>
+ 	
+ 	<select id="getTotal" resultType="int">
+ 		select count(*) from books where 
+ 		<if test="searchKey != null or searchKey != ''"> (book_title | book_writer | book_serial_number | book_status) like concat('%',#{searchKey},'%') and </if>
+ 		book_status not in ('삭제')
+ 	</select>
+ 
+ </mapper>
