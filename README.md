@@ -70,6 +70,6 @@
 
 * ### 동작 과정  
   
-  **유튜브 동영상 (아래 사진을 )**  
+  **유튜브 동영상 (아래 사진을 클릭해주세요)**  
     
   [![Video Label](https://github.com/12OneTwo12/librarySystem/blob/main/playdatabookrentalservice.png?raw=true)](https://youtu.be/nnP2-U1KUws)
