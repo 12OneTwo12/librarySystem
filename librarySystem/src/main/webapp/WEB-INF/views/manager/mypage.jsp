@@ -24,7 +24,7 @@
 				<li><a href="/library/library/index">Home</a></li>
 				<li><a href="register">책 등록</a></li>
 				<li><a href="remove">책 목록 / 책 삭제</a></li>
-				<li><a href="returnList" >반납 독촉 목록</a></li>
+				<li><a href="returnList">반납 독촉 목록</a></li>
 				<li><a href="mypage" class="active">MyPage</a></li>
 				<li><a href="logout">Logout</a></li>
 			</ul>
@@ -45,25 +45,25 @@
 					<form method="post" action="changePw">
 						<div class="row gtr-uniform">
 							<div class="col-12">
-								<input type="text" name="managerId" id="demo-email" value="${sessionVO.managerId}"
-									placeholder="ID" readonly="readonly" />
+								<input type="text" name="managerId" id="demo-email"
+									value="${sessionVO.managerId}" placeholder="ID"
+									readonly="readonly" />
 							</div>
 							<div class="col-12">
 								<input type="password" name="managerPw" id="demo-email" value=""
 									placeholder="Password" required="required" />
 							</div>
 							<div class="col-12">
-								<input type="password" name="managerNewPw" id="demo-email" value=""
-									placeholder="New Password" required="required" />
+								<input type="password" name="managerNewPw" id="demo-email"
+									value="" placeholder="New Password" required="required" />
 							</div>
 							<div class="col-12">
-								<input type="password" name="managerNewPwCheck" id="demo-email" value=""
-									placeholder="New Password Check" required="required" />
+								<input type="password" name="managerNewPwCheck" id="demo-email"
+									value="" placeholder="New Password Check" required="required" />
 							</div>
 							<div class="col-12">
 								<ul class="actions">
-									<li><input type="submit" value="비밀번호 변경"
-										class="primary" /></li>
+									<li><input type="submit" value="비밀번호 변경" class="primary" /></li>
 								</ul>
 							</div>
 						</div>
@@ -100,7 +100,7 @@
 		src="${pageContext.request.contextPath}/resources/assets/js/util.js"></script>
 	<script
 		src="${pageContext.request.contextPath}/resources/assets/js/main.js"></script>
-		
+
 	<script>
 		var msg = '${msg}';
 		if (msg != "") {

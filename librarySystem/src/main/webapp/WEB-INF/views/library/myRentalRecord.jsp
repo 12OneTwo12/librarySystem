@@ -11,7 +11,8 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/assets/css/main.css" />
 <noscript>
-	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/noscript.css" />
+	<link rel="stylesheet"
+		href="${pageContext.request.contextPath}/resources/assets/css/noscript.css" />
 </noscript>
 </head>
 <body class="is-preload">
@@ -22,7 +23,7 @@
 		<nav>
 			<ul>
 				<li><a href="index">Home</a></li>
-				<li><a href="findBook" >책 찾아보기</a></li>
+				<li><a href="findBook">책 찾아보기</a></li>
 				<li><a href="viewPopularity">책 인기 순위 보기</a></li>
 				<li><a href="myRentalRecord" class="active">내 대여 기록 보기</a></li>
 				<li><a href="findBySerialNumber">일련번호로 조회하기</a></li>
@@ -40,24 +41,24 @@
 
 				<!-- Form -->
 				<section>
-						<form method="post" action="myRentalRecord">
-							<div class="row gtr-uniform">
-								<div class="col-6 col-12-xsmall">
-									<input type="text" name="name" id="demo-name"
-										value="${rentalVO.name}" placeholder="이름을 입력해주세요" />
-								</div>
-	
-								<div class="col-6 col-12-xsmall">
-									<input type="text" name="birth" id="demo-name"
-										value="${rentalVO.birth}" placeholder="생년월일을 입력해주세요" />
-								</div>
-								<div class="col-6 col-12-xsmall">
-									<ul class="actions">
-										<li><input type="submit" value="검색" class="primary" /></li>
-									</ul>
-								</div>
+					<form method="post" action="myRentalRecord">
+						<div class="row gtr-uniform">
+							<div class="col-6 col-12-xsmall">
+								<input type="text" name="name" id="demo-name"
+									value="${rentalVO.name}" placeholder="이름을 입력해주세요" />
 							</div>
-						</form>
+
+							<div class="col-6 col-12-xsmall">
+								<input type="text" name="birth" id="demo-name"
+									value="${rentalVO.birth}" placeholder="생년월일을 입력해주세요" />
+							</div>
+							<div class="col-6 col-12-xsmall">
+								<ul class="actions">
+									<li><input type="submit" value="검색" class="primary" /></li>
+								</ul>
+							</div>
+						</div>
+					</form>
 				</section>
 				<section>
 					<div class="table-wrapper">

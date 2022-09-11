@@ -11,7 +11,8 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/assets/css/main.css" />
 <noscript>
-	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/noscript.css" />
+	<link rel="stylesheet"
+		href="${pageContext.request.contextPath}/resources/assets/css/noscript.css" />
 </noscript>
 </head>
 <body class="is-preload">
@@ -66,30 +67,30 @@
 						</table>
 						<div class="pagination">
 							<a
-								href="findbook?searchKey=${pageVO.cri.searchKey}&pageNum=1&amount=${pageVO.amount}"
+								href="viewPopularity?searchKey=${pageVO.cri.searchKey}&pageNum=1&amount=${pageVO.amount}"
 								class="button small">첫 페이지로 이동</a>
 
 							<c:if test="${pageVO.prev}">
 								<a
-									href="findbook?searchKey=${pageVO.cri.searchKey}&pageNum=${pageVO.start-1}&amount=${pageVO.amount}"
+									href="viewPopularity?searchKey=${pageVO.cri.searchKey}&pageNum=${pageVO.start-1}&amount=${pageVO.amount}"
 									class="button small">이전 페이지로 이동</a>
 							</c:if>
 
 							<c:forEach var="num" begin="${pageVO.start}" end="${pageVO.end}"
 								step="1">
 								<a
-									href="findbook?searchKey=${pageVO.cri.searchKey}&pageNum=${num}&amount=${pageVO.amount}"><span
+									href="viewPopularity?searchKey=${pageVO.cri.searchKey}&pageNum=${num}&amount=${pageVO.amount}"><span
 									class="button small ${pageVO.page == num ? 'currentpage' : ''}"
 									style="${pageVO.page == num ? 'border-color: #ffffff !important; ' : ''}">${num}</span></a>
 							</c:forEach>
 
 							<c:if test="${pageVO.next}">
 								<a
-									href="findbook?searchKey=${pageVO.cri.searchKey}&pageNum=${pageVO.end+1}&amount=${pageVO.amount}"
+									href="viewPopularity?searchKey=${pageVO.cri.searchKey}&pageNum=${pageVO.end+1}&amount=${pageVO.amount}"
 									class="button small">다음 페이지로 이동</a>
 							</c:if>
 							<a
-								href="findbook?searchKey=${pageVO.cri.searchKey}&pageNum=${pageVO.realEnd}&amount=${pageVO.amount}"
+								href="viewPopularity?searchKey=${pageVO.cri.searchKey}&pageNum=${pageVO.realEnd}&amount=${pageVO.amount}"
 								class="button small">마지막 페이지로 이동</a>
 						</div>
 

@@ -16,7 +16,7 @@ public class ManagerServiceImpl implements ManagerService {
 
 	@Autowired
 	ManagerMapper managerMapper;
-	
+
 	@Override
 	public ManagerVO managerLogin(ManagerVO managerVO) {
 		return managerMapper.managerLogin(managerVO);

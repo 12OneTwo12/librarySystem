@@ -18,13 +18,14 @@
 
 	<!-- Header -->
 	<header id="header">
-		<a href="/library/library/index" class="title">PlayData Book Rental Service</a>
+		<a href="/library/library/index" class="title">PlayData Book
+			Rental Service</a>
 		<nav>
 			<ul>
 				<li><a href="/library/library/index">Home</a></li>
 				<li><a href="register" class="active">책 등록</a></li>
 				<li><a href="remove">책 목록 / 삭제</a></li>
-				<li><a href="returnList" >반납 독촉 목록</a></li>
+				<li><a href="returnList">반납 독촉 목록</a></li>
 				<li><a href="mypage">MyPage</a></li>
 				<li><a href="logout">Logout</a></li>
 			</ul>
@@ -45,12 +46,14 @@
 					<form method="post" action="bookRegister">
 						<div class="row gtr-uniform">
 							<div class="col-12">
-								<input type="text" name="bookTitle" id="demo-name" value="${bookVO.bookTitle}"
-									placeholder="책 제목" required="required" />
+								<input type="text" name="bookTitle" id="demo-name"
+									value="${bookVO.bookTitle}" placeholder="책 제목"
+									required="required" />
 							</div>
 							<div class="col-6 col-12-xsmall">
-								<input type="text" name="bookWriter" id="demo-name" value="${bookVO.bookWriter}"
-									placeholder="작가" required="required" />
+								<input type="text" name="bookWriter" id="demo-name"
+									value="${bookVO.bookWriter}" placeholder="작가"
+									required="required" />
 							</div>
 							<div class="col-6 col-12-xsmall">
 								<select name="bookCategory" id="demo-category">
@@ -71,8 +74,9 @@
 					</form>
 				</section>
 				<div class="col-6 col-12-xsmall">
-					<span class="image fit">
-						<img src="/barcodes/${realSerialNumber}.png">
+					<span class="image fit"> <img
+						src="/barcodes/${realSerialNumber}.png"
+						alt="바코드가 생성될 예정입니다. 파일을 저장 후 인쇄하여 책에 부착해주세요">
 					</span>
 				</div>
 			</div>

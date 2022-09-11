@@ -24,5 +24,5 @@ public class BookVO {
 	private String bookStatus;
 	private String bookCategory;
 	private String count;
-	
+
 }

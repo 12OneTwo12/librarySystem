@@ -11,7 +11,8 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/assets/css/main.css" />
 <noscript>
-	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/noscript.css" />
+	<link rel="stylesheet"
+		href="${pageContext.request.contextPath}/resources/assets/css/noscript.css" />
 </noscript>
 </head>
 <body class="is-preload">
@@ -40,27 +41,31 @@
 
 				<!-- Form -->
 				<section>
-						<form method="post" action="findBook">
-							<div class="row gtr-uniform">
-								<div class="col-12">
-									<select name="searchType" id="demo-category">
-										<option value="title" ${pageVO.cri.searchType == 'title' ? 'selected' : ''}>제목</option>
-										<option value="writer" ${pageVO.cri.searchType == 'writer' ? 'selected' : ''}>작가</option>
-										<option value="serialNumber" ${pageVO.cri.searchType == 'serialNumber' ? 'selected' : ''}>일련 번호</option>
-									</select>
-								</div>
-	
-								<div class="col-6 col-12-xsmall">
-									<input type="text" name="searchKey" id="demo-name"
-										value="${pageVO.cri.searchKey}" placeholder="검색어를 입력해주세요" />
-								</div>
-								<div class="col-6 col-12-xsmall">
-									<ul class="actions">
-										<li><input type="submit" value="검색" class="primary" /></li>
-									</ul>
-								</div>
+					<form method="post" action="findBook">
+						<div class="row gtr-uniform">
+							<div class="col-12">
+								<select name="searchType" id="demo-category">
+									<option value="title"
+										${pageVO.cri.searchType == 'title' ? 'selected' : ''}>제목</option>
+									<option value="writer"
+										${pageVO.cri.searchType == 'writer' ? 'selected' : ''}>작가</option>
+									<option value="serialNumber"
+										${pageVO.cri.searchType == 'serialNumber' ? 'selected' : ''}>일련
+										번호</option>
+								</select>
 							</div>
-						</form>
+
+							<div class="col-6 col-12-xsmall">
+								<input type="text" name="searchKey" id="demo-name"
+									value="${pageVO.cri.searchKey}" placeholder="검색어를 입력해주세요" />
+							</div>
+							<div class="col-6 col-12-xsmall">
+								<ul class="actions">
+									<li><input type="submit" value="검색" class="primary" /></li>
+								</ul>
+							</div>
+						</div>
+					</form>
 				</section>
 				<section>
 					<div class="table-wrapper">

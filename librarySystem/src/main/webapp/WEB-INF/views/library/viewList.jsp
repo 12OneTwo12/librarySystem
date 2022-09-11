@@ -45,7 +45,8 @@
 					<li><a href="#one" class="button scrolly">책 찾아보기</a></li>
 					<li><a href="#two" class="button scrolly">책 인기 순위 보기</a></li>
 					<li><a href="#three" class="button scrolly">내 대여 기록 보기</a></li>
-					<li><a href="#four" class="button scrolly">전체 기록 조회 및 일련번호로 조회하기</a></li>
+					<li><a href="#four" class="button scrolly">전체 기록 조회 및
+							일련번호로 조회하기</a></li>
 				</ul>
 			</div>
 		</section>
@@ -60,12 +61,16 @@
 							<div class="row gtr-uniform">
 								<div class="col-12">
 									<select name="searchType" id="demo-category">
-										<option value="title" ${pageVO.cri.searchType == 'title' ? 'selected' : ''}>제목</option>
-										<option value="writer" ${pageVO.cri.searchType == 'writer' ? 'selected' : ''}>작가</option>
-										<option value="serialNumber" ${pageVO.cri.searchType == 'serialNumber' ? 'selected' : ''}>일련 번호</option>
+										<option value="title"
+											${pageVO.cri.searchType == 'title' ? 'selected' : ''}>제목</option>
+										<option value="writer"
+											${pageVO.cri.searchType == 'writer' ? 'selected' : ''}>작가</option>
+										<option value="serialNumber"
+											${pageVO.cri.searchType == 'serialNumber' ? 'selected' : ''}>일련
+											번호</option>
 									</select>
 								</div>
-	
+
 								<div class="col-6 col-12-xsmall">
 									<input type="text" name="searchKey" id="demo-name"
 										value="${pageVO.cri.searchKey}" placeholder="검색어를 입력해주세요" />
@@ -81,7 +86,7 @@
 					</div>
 				</div>
 
-				</section>
+			</section>
 		</section>
 
 		<!-- Two -->
@@ -118,7 +123,7 @@
 				</form>
 			</div>
 		</section>
-		
+
 		<section id="four" class="wrapper style2 spotlights">
 			<section>
 				<div class="content">
@@ -141,7 +146,7 @@
 					</div>
 				</div>
 
-				</section>
+			</section>
 		</section>
 
 	</div>

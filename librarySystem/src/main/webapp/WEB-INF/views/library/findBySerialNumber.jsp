@@ -11,18 +11,20 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/assets/css/main.css" />
 <noscript>
-	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/noscript.css" />
+	<link rel="stylesheet"
+		href="${pageContext.request.contextPath}/resources/assets/css/noscript.css" />
 </noscript>
 </head>
 <body class="is-preload">
 
 	<!-- Header -->
 	<header id="header">
-		<a href="/library/library/index" class="title">PlayData Book Rental Service</a>
+		<a href="/library/library/index" class="title">PlayData Book
+			Rental Service</a>
 		<nav>
 			<ul>
 				<li><a href="/library/library/index">Home</a></li>
-				<li><a href="findBook" >책 찾아보기</a></li>
+				<li><a href="findBook">책 찾아보기</a></li>
 				<li><a href="viewPopularity">책 인기 순위 보기</a></li>
 				<li><a href="myRentalRecord">내 대여 기록 보기</a></li>
 				<li><a href="findBySerialNumber" class="active">일련번호로 조회하기</a></li>
@@ -40,19 +42,19 @@
 
 				<!-- Form -->
 				<section>
-						<form method="post" action="findBySerialNumber">
-							<div class="row gtr-uniform">
-								<div class="col-6 col-12-xsmall">
-									<input type="text" name="searchKey" id="demo-name"
-										value="${pageVO.cri.searchKey}" placeholder="일련번호를 입력해주세요" />
-								</div>
-								<div class="col-6 col-12-xsmall">
-									<ul class="actions">
-										<li><input type="submit" value="검색" class="primary" /></li>
-									</ul>
-								</div>
+					<form method="post" action="findBySerialNumber">
+						<div class="row gtr-uniform">
+							<div class="col-6 col-12-xsmall">
+								<input type="text" name="searchKey" id="demo-name"
+									value="${pageVO.cri.searchKey}" placeholder="일련번호를 입력해주세요" />
 							</div>
-						</form>
+							<div class="col-6 col-12-xsmall">
+								<ul class="actions">
+									<li><input type="submit" value="검색" class="primary" /></li>
+								</ul>
+							</div>
+						</div>
+					</form>
 				</section>
 				<section>
 					<div class="table-wrapper">
@@ -84,30 +86,30 @@
 						</table>
 						<div class="pagination">
 							<a
-								href="findBySerialNumber?pageNum=1&amount=${pageVO.amount}"
+								href="findBySerialNumber?searchKey=${pageVO.cri.searchKey}&pageNum=1&amount=${pageVO.amount}"
 								class="button small">첫 페이지로 이동</a>
 
 							<c:if test="${pageVO.prev}">
 								<a
-									href="findBySerialNumber?&pageNum=${pageVO.start-1}&amount=${pageVO.amount}"
+									href="findBySerialNumber?searchKey=${pageVO.cri.searchKey}&pageNum=${pageVO.start-1}&amount=${pageVO.amount}"
 									class="button small">이전 페이지로 이동</a>
 							</c:if>
 
 							<c:forEach var="num" begin="${pageVO.start}" end="${pageVO.end}"
 								step="1">
 								<a
-									href="findBySerialNumber?pageNum=${num}&amount=${pageVO.amount}"><span
+									href="findBySerialNumber?searchKey=${pageVO.cri.searchKey}&pageNum=${num}&amount=${pageVO.amount}"><span
 									class="button small ${pageVO.page == num ? 'currentpage' : ''}"
 									style="${pageVO.page == num ? 'border-color: #ffffff !important; ' : ''}">${num}</span></a>
 							</c:forEach>
 
 							<c:if test="${pageVO.next}">
 								<a
-									href="findBySerialNumber?pageNum=${pageVO.end+1}&amount=${pageVO.amount}"
+									href="findBySerialNumber?searchKey=${pageVO.cri.searchKey}&pageNum=${pageVO.end+1}&amount=${pageVO.amount}"
 									class="button small">다음 페이지로 이동</a>
 							</c:if>
 							<a
-								href="findBySerialNumber?pageNum=${pageVO.realEnd}&amount=${pageVO.amount}"
+								href="findBySerialNumber?searchKey=${pageVO.cri.searchKey}&pageNum=${pageVO.realEnd}&amount=${pageVO.amount}"
 								class="button small">마지막 페이지로 이동</a>
 						</div>
 

@@ -61,27 +61,31 @@
 							<div class="row gtr-uniform">
 								<div class="col-12">
 									<input type="text" name="bookSerialNumber" id="demo-email"
-										value="${bookVO.bookSerialNumber}" required="required" readonly="readonly"/>
+										value="${bookVO.bookSerialNumber}" required="required"
+										readonly="readonly" />
 								</div>
 
 								<div class="col-6 col-12-xsmall">
 									<input type="text" name="bookTitle" id="demo-name"
-										value="${bookVO.bookTitle}" required="required" readonly="readonly"/>
+										value="${bookVO.bookTitle}" required="required"
+										readonly="readonly" />
 								</div>
-								
+
 								<div class="col-6 col-12-xsmall">
 									<input type="text" name="bookWriter" id="demo-name"
-										value="${bookVO.bookWriter}" required="required" readonly="readonly"/>
+										value="${bookVO.bookWriter}" required="required"
+										readonly="readonly" />
 								</div>
 
 								<div class="col-6 col-12-xsmall">
 									<input type="text" id="demo-name"
-										value="${rentalVO.rentalStart}" required="required" readonly="readonly"/>
+										value="${rentalVO.rentalStart}" required="required"
+										readonly="readonly" />
 								</div>
-								
+
 								<div class="col-6 col-12-xsmall">
-									<input type="text" id="demo-name"
-										value="${bookVO.bookStatus}" required="required" readonly="readonly"/>
+									<input type="text" id="demo-name" value="${bookVO.bookStatus}"
+										required="required" readonly="readonly" />
 								</div>
 
 								<div class="col-12">

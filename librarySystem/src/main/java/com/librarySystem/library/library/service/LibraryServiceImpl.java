@@ -26,20 +26,19 @@ public class LibraryServiceImpl implements LibraryService {
 
 	@Override
 	public int rentalBook(RentalVO rentalVO, BookVO bookVO) {
-		
-		int result = libraryMapper.updateStatus(bookVO.getBookNumber(),"대여중");
-		
-		if(result == 1) {
+
+		int result = libraryMapper.updateStatus(bookVO.getBookNumber(), "대여중");
+
+		if (result == 1) {
 			Map<String, Object> map = new HashMap<>();
 			map.put("rentalVO", rentalVO);
 			map.put("bookVO", bookVO);
-			
+
 			return libraryMapper.rentalBook(map);
 		} else {
 			return 0;
 		}
-		
-		
+
 	}
 
 	@Override
@@ -49,29 +48,29 @@ public class LibraryServiceImpl implements LibraryService {
 
 	@Override
 	public int realReturnBook(BookVO bookVO) {
-		
-		int result = libraryMapper.updateStatus(bookVO.getBookNumber(),"대여 가능");
-		
-		if(result == 1) {
+
+		int result = libraryMapper.updateStatus(bookVO.getBookNumber(), "대여 가능");
+
+		if (result == 1) {
 			return libraryMapper.realReturnBook(bookVO);
 		} else {
 			return 0;
 		}
-		
+
 	}
 
 	@Override
 	public List<UserRentalVO> getMyRentalList(Criteria cri, RentalVO rentalVO) {
-		
+
 		Map<String, Object> map = new HashMap<>();
 		map.put("cri", cri);
 		map.put("rentalVO", rentalVO);
-		
+
 		return libraryMapper.getMyRentalList(map);
 	}
 
 	@Override
-	public int getTotalMyRental(RentalVO rentalVO) {		
+	public int getTotalMyRental(RentalVO rentalVO) {
 		return libraryMapper.getTotalMyRental(rentalVO);
 	}
 

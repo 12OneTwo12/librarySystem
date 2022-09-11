@@ -19,13 +19,14 @@
 
 	<!-- Header -->
 	<header id="header">
-		<a href="/library/library/index" class="title">PlayData Book Rental Service</a>
+		<a href="/library/library/index" class="title">PlayData Book
+			Rental Service</a>
 		<nav>
 			<ul>
 				<li><a href="/library/library/index">Home</a></li>
 				<li><a href="register">책 등록</a></li>
 				<li><a href="remove" class="active">책 목록 / 책 삭제</a></li>
-				<li><a href="returnList" >반납 독촉 목록</a></li>
+				<li><a href="returnList">반납 독촉 목록</a></li>
 				<li><a href="mypage">MyPage</a></li>
 				<li><a href="logout">Logout</a></li>
 			</ul>
@@ -46,10 +47,15 @@
 						<div class="row gtr-uniform">
 							<div class="col-12">
 								<select name="searchType" id="demo-category">
-									<option value="title" ${pageVO.cri.searchType == 'title' ? 'selected' : ''}>제목</option>
-									<option value="writer" ${pageVO.cri.searchType == 'writer' ? 'selected' : ''}>작가</option>
-									<option value="serialNumber" ${pageVO.cri.searchType == 'serialNumber' ? 'selected' : ''}>일련 번호</option>
-									<option value="status" ${pageVO.cri.searchType == 'status' ? 'selected' : ''}>상태</option>
+									<option value="title"
+										${pageVO.cri.searchType == 'title' ? 'selected' : ''}>제목</option>
+									<option value="writer"
+										${pageVO.cri.searchType == 'writer' ? 'selected' : ''}>작가</option>
+									<option value="serialNumber"
+										${pageVO.cri.searchType == 'serialNumber' ? 'selected' : ''}>일련
+										번호</option>
+									<option value="status"
+										${pageVO.cri.searchType == 'status' ? 'selected' : ''}>상태</option>
 								</select>
 							</div>
 
@@ -84,8 +90,9 @@
 										<td>${vo.bookTitle}</td>
 										<td>${vo.bookWriter}</td>
 										<td>${vo.bookStatus}</td>
-										<td><button type="button" onclick="deleteBookF(${vo.bookNumber})"
-											class="button small" id="deleteBook">삭제</button></td>
+										<td><button type="button"
+												onclick="deleteBookF(${vo.bookNumber})" class="button small"
+												id="deleteBook">삭제</button></td>
 									</tr>
 								</c:forEach>
 							</tbody>

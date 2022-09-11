@@ -30,49 +30,57 @@
 	</header>
 
 	<!-- Wrapper -->
-			<div id="wrapper">
+	<div id="wrapper">
 
-				<!-- Main -->
-					<section id="main" class="wrapper">
-						<div class="inner">
-							<h1 class="major">책 대여하기</h1>
+		<!-- Main -->
+		<section id="main" class="wrapper">
+			<div class="inner">
+				<h1 class="major">책 대여하기</h1>
 
-							<!-- Form -->
-								<section>
-									<h2>작성해주세요</h2>
-									<form method="post" action="rentalBook">
-										<div class="row gtr-uniform">
-											<div class="col-12">
-												<input type="text" name="bookSerialNumber" id="demo-email" value="${rentalVO.bookSerialNumber}" placeholder="책 일련번호" required="required"/>
-											</div>
-											<div class="col-6 col-12-xsmall">
-												<input type="text" name="name" id="demo-name" value="${rentalVO.name}" placeholder="이름" required="required"/>
-											</div>
-											<div class="col-6 col-12-xsmall">
-												<input type="text" name="birth" id="demo-email" value="${rentalVO.birth}" placeholder="생년월일" required="required"/>
-											</div>
-											<div class="col-12">
-												<input type="text" name="phoneNumber" id="demo-email" value="${rentalVO.phoneNumber}" placeholder="연락처" required="required"/>
-											</div>
-											<div class="col-12">
-												<ul class="actions">
-													<li><input type="submit" value="대여" class="primary" /></li>
-												</ul>
-											</div>
-										</div>
-									</form>
-								</section>
-
+				<!-- Form -->
+				<section>
+					<h2>작성해주세요</h2>
+					<form method="post" action="rentalBook">
+						<div class="row gtr-uniform">
+							<div class="col-12">
+								<input type="text" name="bookSerialNumber" id="demo-email"
+									value="${rentalVO.bookSerialNumber}" placeholder="책 일련번호"
+									required="required" />
+							</div>
+							<div class="col-6 col-12-xsmall">
+								<input type="text" name="name" id="demo-name"
+									value="${rentalVO.name}" placeholder="이름" required="required" />
+							</div>
+							<div class="col-6 col-12-xsmall">
+								<input type="text" name="birth" id="demo-email"
+									value="${rentalVO.birth}" placeholder="생년월일"
+									required="required" />
+							</div>
+							<div class="col-12">
+								<input type="text" name="phoneNumber" id="demo-email"
+									value="${rentalVO.phoneNumber}" placeholder="연락처"
+									required="required" />
+							</div>
+							<div class="col-12">
+								<ul class="actions">
+									<li><input type="submit" value="대여" class="primary" /></li>
+								</ul>
+							</div>
 						</div>
-					</section>
+					</form>
+				</section>
 
 			</div>
+		</section>
+
+	</div>
 
 	<!-- Footer -->
 	<footer id="footer" class="wrapper alt">
 		<div class="inner">
 			<ul class="menu">
-				<li>&copy; Made by Jeongil Jeong</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+				<li>&copy; Made by Jeongil Jeong</li>
+				<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
 			</ul>
 		</div>
 	</footer>

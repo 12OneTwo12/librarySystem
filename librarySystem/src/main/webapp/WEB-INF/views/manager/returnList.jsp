@@ -19,12 +19,13 @@
 
 	<!-- Header -->
 	<header id="header">
-		<a href="/library/library/index" class="title">PlayData Book Rental Service</a>
+		<a href="/library/library/index" class="title">PlayData Book
+			Rental Service</a>
 		<nav>
 			<ul>
 				<li><a href="/library/library/index">Home</a></li>
 				<li><a href="register">책 등록</a></li>
-				<li><a href="remove" >책 목록 / 책 삭제</a></li>
+				<li><a href="remove">책 목록 / 책 삭제</a></li>
 				<li><a href="returnList" class="active">반납 독촉 목록</a></li>
 				<li><a href="mypage">MyPage</a></li>
 				<li><a href="logout">Logout</a></li>
@@ -71,8 +72,7 @@
 							</tbody>
 						</table>
 						<div class="pagination">
-							<a
-								href="returnList?pageNum=1&amount=${pageVO.amount}"
+							<a href="returnList?pageNum=1&amount=${pageVO.amount}"
 								class="button small">첫 페이지로 이동</a>
 
 							<c:if test="${pageVO.prev}">
@@ -83,8 +83,7 @@
 
 							<c:forEach var="num" begin="${pageVO.start}" end="${pageVO.end}"
 								step="1">
-								<a
-									href="returnList?pageNum=${num}&amount=${pageVO.amount}"><span
+								<a href="returnList?pageNum=${num}&amount=${pageVO.amount}"><span
 									class="button small ${pageVO.page == num ? 'currentpage' : ''}"
 									style="${pageVO.page == num ? 'border-color: #ffffff !important; ' : ''}">${num}</span></a>
 							</c:forEach>
@@ -139,15 +138,15 @@
 		if (msg != "") {
 			alert(msg);
 		}
-		
-		function deleteBookF(number){
-    		event.preventDefault(); 
-    		
-    		if(confirm("삭제 하시겠습니까?")){
-    			var link = "deleteBook?bookNumber="+number;
-    			location.href = link;
-    		}
-    	}
+
+		function deleteBookF(number) {
+			event.preventDefault();
+
+			if (confirm("삭제 하시겠습니까?")) {
+				var link = "deleteBook?bookNumber=" + number;
+				location.href = link;
+			}
+		}
 	</script>
 </body>
 </html>
