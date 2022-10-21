@@ -53,6 +53,11 @@
   - 이름, 생년월일로 내 대여기록 조회
   ```
 
+* ### ERD  
+
+  ![playdatarental8](https://user-images.githubusercontent.com/105261146/197095632-97c10d3d-1541-494b-8e31-00512f59d72d.png)
+
+
 * ### 사용시 주의 사항  
   
   ```
